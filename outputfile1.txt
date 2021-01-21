@@ -1,0 +1,4 @@
+Case 1, Total: 797
+Case 2, Total: 829
+Case 3, Total: 829
+Case 4, Total: 829
