@@ -2,7 +2,7 @@
 
 Group Members:
 | No.| Name                            | Matric Number |
-|:-: | :-----------------------------: | :-----------: |
+|:-: | ------------------------------- | :-----------: |
 | 1. | Nur A'isyah binti Ahmad Irfan   | 1917048       |
 | 2. | Salihah binti Zayn Al-Abideen   | 1918618       |
 | 3. | Nurul Balqis Amyli Binti Yaacob | 1915472       |
