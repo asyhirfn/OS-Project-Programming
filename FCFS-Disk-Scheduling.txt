@@ -1,0 +1,54 @@
+#include <iostream>
+#include <fstream>
+#include <cmath>
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main()
+{
+cout<<"FCFS Disk Scheduling\n";
+cout << "\n";
+
+int j, n, start, i, total, prev, caseno=1;
+int head = 98;
+int val[20];
+
+//Reading from the file
+ifstream input;
+input.open("inputfile1.txt");
+
+ofstream output;
+output.open("outputfile1.txt");
+
+input >> j >> n >> start;
+cout << "Starting track: " << start << endl;
+cout << "\n";
+
+
+while(j--)
+{
+total=0;
+//prev = start;
+
+cout << "Case " << caseno;
+for(i = 0; i < n; ++i)
+{
+input >> val[i];
+cout << ", " << val[i];
+//Calculating the total seek time.
+total += abs(val[i]-head);
+head = val[i];
+}
+
+cout << endl;
+cout << "Case " << caseno << ", Total: " << total << endl;
+cout << "\n";
+output << "Case " << caseno << ", Total: " << total << endl;
+caseno++;
+}
+
+//closing the file
+input.close();
+return 0;
+}
