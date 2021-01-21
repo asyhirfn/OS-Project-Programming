@@ -1,0 +1,3 @@
+Case 1, 12 faults.
+Case 2, 12 faults.
+Case 3, 12 faults.

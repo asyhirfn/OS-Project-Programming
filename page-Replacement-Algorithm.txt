@@ -1,0 +1,86 @@
+#include <iostream>
+#include <fstream>
+#include <queue>
+int pageFaults(int[], int, int);
+using namespace std;
+
+int pageFaults(int pages[], int n, int capacity) 
+{
+	int myq[n], faults = 0;
+	int frame[capacity];
+	
+	for (int i=0;i<capacity;i++)
+	{
+		frame[i] = -1;
+	}
+	
+	for (int i=0;i<22;i++)
+	{
+		if (i<capacity) //within capacity
+		{
+			if (frame[i] == -1)
+			{
+				frame[i] = myq[i]; //if frame is empty, insert from queue
+			}
+		}
+		
+		else 
+		{
+			for (int m=0; m<capacity; m++)
+			{
+				if (frame[m] == myq[i])
+				break;
+				
+				else 
+				{
+					frame[m] = myq[i];
+					faults++;
+				}
+				
+			}
+		}
+		
+	}
+	
+	return faults;
+}
+int main ()
+{
+	ifstream inFile;
+	ofstream outFile;
+
+	inFile.open ("inputfile2.txt");
+	outFile.open ("outputfile2.txt");
+	
+	int caseNo[3], numFrames[3], reqSeq[3][22];
+	for (int i = 0; i<3; i++)
+	{
+		inFile >> caseNo[i] >> numFrames[i];
+		
+		for (int m=0; m<22; m++)
+		{
+			inFile >> reqSeq[i][m];
+		}
+		
+	}
+	
+	int pages[22];
+	
+	for (int i = 0; i<3; i++)
+	{	
+		for (int m=0; m<22; m++)
+		{
+			pages[m] = reqSeq[i][m];
+		}
+		
+		outFile << "Case " << caseNo[i] << ", " << pageFaults(pages, 22, numFrames[i]) << " faults." <<endl;
+	
+	}
+	
+	
+	inFile.close();
+	outFile.close();
+	
+	return 0;
+}
+
